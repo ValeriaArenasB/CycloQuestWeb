@@ -27,7 +27,7 @@ public class Trayecto {
 
     Boolean enProceso;
 
-    @OneToMany
+    @OneToMany(mappedBy = "trayecto")
     List<Ubicacion> ubicaciones;
     
 
