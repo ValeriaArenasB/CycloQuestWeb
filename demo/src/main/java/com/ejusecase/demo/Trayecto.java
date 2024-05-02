@@ -31,5 +31,5 @@ public class Trayecto {
     List<Ubicacion> ubicaciones;
     
 
-    
+
 }
