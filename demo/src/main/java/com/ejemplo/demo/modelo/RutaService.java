@@ -1,10 +1,10 @@
-package com.ejusecase.demo.modelo.model;
+package com.ejemplo.demo.modelo;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
+import com.ejemplo.demo.dataAccess.RutaRepository;
 
-import com.ejusecase.demo.modelo.dataAccess.RutaRepository;
-
-
+@Service
 public class RutaService {
     private final RutaRepository rutaRepository;
 

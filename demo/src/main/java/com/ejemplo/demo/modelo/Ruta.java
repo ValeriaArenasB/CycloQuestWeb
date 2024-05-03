@@ -1,4 +1,4 @@
-package com.ejusecase.demo.modelo.model;
+package com.ejemplo.demo.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

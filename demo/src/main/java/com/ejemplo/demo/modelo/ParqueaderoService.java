@@ -1,7 +1,9 @@
-package com.ejusecase.demo.modelo.model;
+package com.ejemplo.demo.modelo;
 
-import com.ejusecase.demo.modelo.dataAccess.ParqueaderoRepository;
+import org.springframework.stereotype.Service;
+import com.ejemplo.demo.dataAccess.ParqueaderoRepository;
 
+@Service
 public class ParqueaderoService {
     private final ParqueaderoRepository parqueaderoRepository;
 

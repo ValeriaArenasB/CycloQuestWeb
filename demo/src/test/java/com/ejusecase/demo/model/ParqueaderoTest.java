@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.ejusecase.demo.modelo.dataAccess.*;
-import com.ejusecase.demo.modelo.model.Parqueadero;
+import com.ejemplo.demo.dataAccess.*;
+import com.ejemplo.demo.modelo.Parqueadero;
 
 @SpringBootTest
 public class ParqueaderoTest {

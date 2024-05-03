@@ -1,13 +1,18 @@
-package com.ejusecase.demo.modelo.model;
+package com.ejemplo.demo.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+
+import java.util.Date;
+
 import jakarta.persistence.Column;
 
 @Entity
-public class Parqueadero {
+public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -16,10 +21,13 @@ public class Parqueadero {
     private String nombre;
 
     @Column(nullable = false)
-    private Integer capacidad;
+    private String ubicacion;
 
     @Column(nullable = false)
-    private String ubicacion;
+    private String descripcion;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fecha;
 
     // Getters y Setters
     public Integer getId() {
@@ -38,19 +46,27 @@ public class Parqueadero {
         this.nombre = nombre;
     }
 
-    public Integer getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(Integer capacidad) {
-        this.capacidad = capacidad;
-    }
-
     public String getUbicacion() {
         return ubicacion;
     }
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }
