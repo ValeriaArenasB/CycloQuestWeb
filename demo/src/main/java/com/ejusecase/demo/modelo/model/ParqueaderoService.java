@@ -1,8 +1,6 @@
-import org.springframework.data.jpa.repository.JpaRepository;
+package com.ejusecase.demo.modelo.model;
 
-public interface ParqueaderoRepository extends JpaRepository<Parqueadero, Integer> {
-    Parqueadero findByNombre(String nombre);
-}
+import com.ejusecase.demo.modelo.dataAccess.ParqueaderoRepository;
 
 public class ParqueaderoService {
     private final ParqueaderoRepository parqueaderoRepository;

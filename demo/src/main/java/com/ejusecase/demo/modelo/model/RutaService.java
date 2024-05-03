@@ -1,6 +1,9 @@
-import org.springframework.data.jpa.repository.JpaRepository;
+package com.ejusecase.demo.modelo.model;
 
-public interface RutaRepository extends JpaRepository<Ruta, Integer> {}
+import java.util.List;
+
+import com.ejusecase.demo.modelo.dataAccess.RutaRepository;
+
 
 public class RutaService {
     private final RutaRepository rutaRepository;

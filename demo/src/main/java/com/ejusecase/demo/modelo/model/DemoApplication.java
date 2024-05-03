@@ -1,4 +1,4 @@
-package com.ejusecase.demo;
+package com.ejusecase.demo.modelo.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
