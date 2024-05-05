@@ -1,7 +1,8 @@
-package com.ejemplo.demo.modelo;
+package com.ejemplo.demo.logica;
 
 import org.springframework.stereotype.Service;
 import com.ejemplo.demo.dataAccess.ParqueaderoRepository;
+import com.ejemplo.demo.modelo.Parqueadero;
 
 @Service
 public class ParqueaderoService {
