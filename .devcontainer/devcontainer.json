@@ -6,13 +6,11 @@
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
 
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "22",
-			"jdkDistro": "tem"
-		},
+		"ghcr.io/devcontainers/features/java:1": {},
 		"ghcr.io/devcontainers-contrib/features/maven-sdkman:2": {},
 		"ghcr.io/devcontainers-contrib/features/mvnd-sdkman:2": {},
-		"ghcr.io/devcontainers-contrib/features/springboot-sdkman:2": {}
+		"ghcr.io/devcontainers-contrib/features/springboot-sdkman:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
 
 	// Configure tool-specific properties.
