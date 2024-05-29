@@ -1,43 +1,56 @@
-# Diagrama de clases
+# Diagrama de clases Servicio
 
-![](https://www.plantuml.com/plantuml/png/PP51I_H038Rl_HMXfs-NRmjUUrWM3yA21q7z0TbEh85f8fcfeE9_DzLEjwlNPzvadfSSKaRBun2hgekO4joJlNB7-c3uHbtM11yL08ipj0B_RQ25esJgoVpLgEUK3Utnn1twi2n13almFupj4jYivvzOCF8xsdfiVbu5FujZYVseXGkNPpKyJhRQGkQ1lD_mClCR5eV4Gu71jL6ycQ-uLUadDDgtu9cGt9bsbDJHjMea55SfBakZMUQtowL5z9MSHqy57K-H9eHvJM3QlHIihshOxi9k3_MsFlzLLN_Fr3JMD7iem0KF9C4l-mK0)
-
-Clases:
-* Trayecto: Cada uno de los taryectos de entrenamiento del usuario.
-* Ubicacion: Secuencia de ubicaciones (con longitud y latitud) que se obtienen durante un trayecto específico.
-
+![](https://www.plantuml.com/plantuml/png/dLBBJiGm3BpdAwoUkg0zS5sXrHxWW8JGYlq2Dp4bKfiM9-a5yU-a3oar3rHnIkpCsEE9JpuWXzWsIZVeFPoHtoAX8Uukn8FL1EyAu1gOQki38wyGPP_lS5XpToaSEcicQXMz5hnpnqzTMp6LRZeI-1BOkdedgwWFjSXwZW6bdiQEoiUyBqVQOufln_2OMVS3kV3R7FDZITC1XncSXIz5X2DJ2MiIvC45gebJ-6M2bD7OexO69IvMLgTqvp9KGLPJPiSMl_vdqZQ9Xhncst-JiztKRNtaq7yr1tWX_OefSOU1iZNvezO_yyEM5ZS5xFTGN1LhSnAd9XzIAuIZobiay6DQ0jUB8w3pWmIVo9dODfy0)
 
 ---
 
 ```uml
 @startuml
 
-class ServicioTrayectos {
-  iniciarTrayecto() : Integer
-  registrarUbicacionTrayecto(id: Integer, u:Ubicacion): Integer
-  finalizarTrayecto(id:Integer): Integer
+class ParqueaderoService {
+  + registrarParqueadero(parqueadero : Parqueadero) : void
+  + buscarParqueaderoPorNombre(nombre : String) : Parqueadero
 }
 
-class Trayecto {
+class RutaService {
+  + listarRutas() : List<Ruta>
+}
+
+class EventoService {
+  + registrarEvento(evento : Evento) : void
+}
+
+class Parqueadero {
   id : Integer
-  horaInicio: timestamp
-  horaFin: teimstamp
-  distancia : Long
-  duracion : Long
-  enProceso : Boolean
+  nombre : String
+  capacidad : Integer
+  ubicacion : String
+
+  registrar() : void
+  buscarPorNombre(nombre : String) : Parqueadero
 }
 
+class Ruta {
+  id : Integer
+  nombre : String
+  descripcion : String
 
-class Ubicacion {
-  id: Integer
-  hora: timestamp
-  longitud: double
-  latitud: double 
+  listarRutas() : List<Ruta>
 }
 
-Trayecto "1" *-d-> "*" Ubicacion
+class Evento {
+  id : Integer
+  nombre : String
+  ubicacion : String
+  descripcion : String
+  fecha : Date
 
-ServicioTrayectos ..r..> Trayecto
+  registrarEvento() : void
+}
+
+ParqueaderoService "1" -- "*" Parqueadero : gestiona >
+RutaService "1" -- "*" Ruta : gestiona >
+EventoService "1" -- "*" Evento : gestiona >
 
 @enduml
 ```
