@@ -1,4 +1,4 @@
-package com.ejemplo.demo.rest;
+package com.ejemplo.demo.ControllerWeb;
 
 import java.util.ArrayList;
 import java.util.List;
