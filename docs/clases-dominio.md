@@ -1,35 +1,39 @@
-# Diagrama de clases
+# Diagrama de clases Dominio
 
-![](https://www.plantuml.com/plantuml/png/NO-_IWH13CRxF4MOyk0Asolai10MB2pq0R8pOGtC939_2X7VtIoxkdhTp8zyNtwvjawrZv8XPceDNofzSEo6du0e2IyuQUU5gt_VhDAa4iKksAMmHylxpXz57RAK7vZ4Nng5lEB9T5dHgEHXFGZhSxN8pHmzc6KcXI-0tULrbhW5DfbRb_yMsIkb3vzADkRCAwB-b-3Q_NjWk0juEf_lCPp2iGe0hgnfbFmD)
-
-Clases:
-* Trayecto: Cada uno de los taryectos de entrenamiento del usuario.
-* Ubicacion: Secuencia de ubicaciones (con longitud y latitud) que se obtienen durante un trayecto específico.
+![](https://www.plantuml.com/plantuml/png/ZP6nJiCm48PtFyKf2wLI8x4Y57Ke0n925Jp1nRw6arAxdEqkYAVY4NWnpl4G0WFTSbzE_dz_tiQ4al9nD7R4666FyfO97Kc0TmF03cxXmISQI7JquTWBANf9mdvGOl64bXqkztBFLd7mywfIeO5Z4fJLjV9pOAUmpz6Yx8CyJMUlVaNevizIviEOAzZHWJrR_lhqu0X6XDAUu3adh1UPFY-xWQDeXKz_sevSt9HpujJtKUUxCdQbH4svFvDFbvcQdVmR3d0W-ueATfXeOQu6plwqIKNDJGFhZTjqqAoRAgB-WBQLjkqM4hVadRxvDm00)
 
 
 ---
-
 ```uml
 @startuml
 
-class Trayecto {
+class Parqueadero {
   id : Integer
-  horaInicio: timestamp
-  horaFin: teimstamp
-  distancia : Long
-  duracion : Long
-  enProceso : Boolean
+  nombre : String
+  capacidad : Integer
+  ubicacion : String
+
+  registrar() : void
+  buscarPorNombre(nombre : String) : Parqueadero
 }
 
+class Ruta {
+  id : Integer
+  nombre : String
+  descripcion : String
 
-class Ubicacion {
-  id: Integer
-  hora: timestamp
-  longitud: double
-  latitud: double 
+  listarRutas() : List<Ruta>
 }
 
-Trayecto "1" *--> "*" Ubicacion
+class Evento {
+  id : Integer
+  nombre : String
+  ubicacion : String
+  descripcion : String
+  fecha : Date
+
+  registrarEvento() : void
+}
 
 @enduml
 ```
