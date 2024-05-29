@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ejemplo.demo.DemoApplication;
 import com.ejemplo.demo.dataAccess.EventoRepository;
 import com.ejemplo.demo.modelo.Evento;
 
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 class EventoServiceTests {
 
     @Autowired
