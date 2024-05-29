@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ejemplo.demo.modelo.Ruta;
 
 @RestController
-public class Ejemplo {
+public class RutaRestController {
 
     List<Ruta> rutas = new ArrayList<Ruta>();
 
