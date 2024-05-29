@@ -1,47 +1,55 @@
 package com.ejemplo.demo.ControllerWeb;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import com.ejemplo.demo.modelo.Ruta;
+import com.ejemplo.demo.dataAccess.RutaRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/ruta")
 public class RutaRestController {
 
-    List<Ruta> rutas = new ArrayList<Ruta>();
+    @Autowired
+    private RutaRepository rutaRepository;
 
-    @GetMapping("/api/ejemplo")
-    public List<Ruta> todas(){
-        return rutas;
+    @GetMapping()
+    public ResponseEntity<List<Ruta>> obtenerTodas() {
+        List<Ruta> rutas = rutaRepository.findAll();
+        return ResponseEntity.ok(rutas);
     }
 
-    @PostMapping("/api/ejemplo")
-    public Integer grabar(@RequestBody Ruta nueva){
-        rutas.add(nueva);
-        return rutas.size() - 1;
+    @PostMapping()
+    public ResponseEntity<Ruta> agregarRuta(@RequestBody Ruta nuevaRuta) {
+        Ruta rutaGuardada = rutaRepository.save(nuevaRuta);
+        return ResponseEntity.ok(rutaGuardada);
     }
 
-    @GetMapping("/api/ejemplo/{id}")
-    public Ruta rutaXIndice(@PathVariable Integer id){
-        return rutas.get(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Ruta> obtenerPorId(@PathVariable Integer id) {
+        Optional<Ruta> ruta = rutaRepository.findById(id);
+        return ruta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/api/ejemplo/{id}")
-    public Integer modificarRutaXIndice(@PathVariable Integer id, @RequestBody Ruta nueva){
-        rutas.set(id, nueva);
-        return 1;
+    @PutMapping("/{id}")
+    public ResponseEntity<Ruta> actualizarRuta(@PathVariable Integer id, @RequestBody Ruta nuevaRuta) {
+        if (!rutaRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        nuevaRuta.setId(id);
+        Ruta rutaActualizada = rutaRepository.save(nuevaRuta);
+        return ResponseEntity.ok(rutaActualizada);
     }
-    @DeleteMapping("/api/ejemplo/{id}")
-    public Integer eliminarToo(@PathVariable Integer id){
-        rutas.remove(rutas.get(id));
-        return 0;
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarRuta(@PathVariable Integer id) {
+        if (!rutaRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        rutaRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

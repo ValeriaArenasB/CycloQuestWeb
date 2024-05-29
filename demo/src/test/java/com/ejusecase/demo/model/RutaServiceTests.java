@@ -9,12 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ejemplo.demo.DemoApplication;
 import com.ejemplo.demo.dataAccess.RutaRepository;
 import com.ejemplo.demo.modelo.Ruta;
 import com.ejemplo.demo.logica.RutaService;
 
 
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 class RutaServiceTests {
 
     @Autowired
