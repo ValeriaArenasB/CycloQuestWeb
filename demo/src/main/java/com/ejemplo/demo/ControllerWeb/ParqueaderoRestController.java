@@ -33,6 +33,12 @@ public class ParqueaderoRestController {
         return parqueadero.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Parqueadero>> buscarParqueaderos(@RequestParam String nombre) {
+        List<Parqueadero> parqueaderos = parqueaderoRepository.findByNombreContaining(nombre);
+        return ResponseEntity.ok(parqueaderos);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Parqueadero> updateParqueadero(@PathVariable Integer id, @RequestBody Parqueadero parqueaderoDetails) {
         Optional<Parqueadero> parqueadero = parqueaderoRepository.findById(id);

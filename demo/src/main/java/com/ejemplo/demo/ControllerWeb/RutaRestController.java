@@ -34,6 +34,12 @@ public class RutaRestController {
         return ruta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Ruta>> buscarRutas(@RequestParam String nombre) {
+        List<Ruta> rutas = rutaRepository.findByNombreContaining(nombre);
+        return ResponseEntity.ok(rutas);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Ruta> actualizarRuta(@PathVariable Integer id, @RequestBody Ruta nuevaRuta) {
         if (!rutaRepository.existsById(id)) {

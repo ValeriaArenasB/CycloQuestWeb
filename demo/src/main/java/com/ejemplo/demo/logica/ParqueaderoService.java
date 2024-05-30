@@ -1,5 +1,7 @@
 package com.ejemplo.demo.logica;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.ejemplo.demo.dataAccess.ParqueaderoRepository;
 import com.ejemplo.demo.modelo.Parqueadero;
@@ -12,7 +14,7 @@ public class ParqueaderoService {
         this.parqueaderoRepository = repository;
     }
 
-    public Parqueadero buscarPorNombre(String nombre) {
-        return parqueaderoRepository.findByNombre(nombre);
+    public List<Parqueadero> buscarPorNombre(String nombre) {
+        return parqueaderoRepository.findByNombreContaining(nombre);
     }
 }

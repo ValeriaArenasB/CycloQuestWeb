@@ -8,38 +8,32 @@
 </head>
 <body>
     <header>
-        <div class = "title">
+        <div class="title">
             <h1>Bienvenido a CycloQuest</h1>
         </div>
     </header>
 
-        <div class="title_header">
-            <h2>Agregar Parqueadero</h2>
-        </div>
+    <div class="title_header">
+        <h2>Agregar Parqueadero</h2>
+    </div>
 
+    <main>
+        <div class="form-container">
+            <form id="parqueaderoForm">
+                <label for="name1">Nombre:</label>
+                <input type="text" id="name1" name="name1" required>
 
-        <main>
-            <div class="form-container">
-                <form>
-                    <h4></h4>
-                    <label for="name1">Nombre:</label>
-                    <input type="text" id="name1" name="name1">
-                </form>
-        
-                <form>
-                    <label for="name2">Ubicación:</label>
-                    <input type="text" id="name2" name="name2">
-                </form>
-        
-                <form>
-                    <label for="name3">Capacidad:</label>
-                    <input type="number" id="name3" name="name3" min="1" max="50">
-                </form>
+                <label for="name2">Ubicación:</label>
+                <input type="text" id="name2" name="name2" required>
+
+                <label for="name3">Capacidad:</label>
+                <input type="number" id="name3" name="name3" min="1" max="50" required>
+
                 <input type="submit" value="Enviar">
-            </div>
-            
-        </main>
+            </form>
+        </div>
+    </main>
 
-    <script src="scripts.js"></script>
+    <script src="enviarSolicitud.js"></script>
 </body>
 </html>

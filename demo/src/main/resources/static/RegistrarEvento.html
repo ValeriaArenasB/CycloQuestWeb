@@ -8,44 +8,35 @@
 </head>
 <body>
     <header>
-        <div class = "title">
+        <div class="title">
             <h1>Bienvenido a CycloQuest</h1>
         </div>
     </header>
 
-        <div class="title_header">
-            <h2>Registrar Evento</h2>
-        </div>
+    <div class="title_header">
+        <h2>Registrar Evento</h2>
+    </div>
 
-
-        <main>
-            <div class="form-container">
-                <form>
-                    <h4></h4>
-                    <label for="name1">Nombre del Evento:</label>
-                    <input type="text" id="name1" name="name1">
-                </form>
-        
-                <form>
-                    <label for="name2">Fecha y Hora:</label>
-                    <input type="text" id="name2" name="name2">
-                </form>
-        
-                <form>
-                    <label for="name3">Ubicación:</label>
-                    <input type="text" id="name3" name="name3" min="1" max="50">
-                </form>
-
-                <form>
-                    <label for="name3">Descripción del Evento:</label>
-                    <input type="text" id="name4" name="name4">
-                </form>
+    <main>
+        <div class="form-container">
+            <form id="registrarEventoForm">
+                <label for="nombre">Nombre del Evento:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="fecha">Fecha y Hora:</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
+                
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" required>
+                
+                <label for="descripcion">Descripción del Evento:</label>
+                <input type="text" id="descripcion" name="descripcion" required>
                 
                 <input type="submit" value="Enviar">
-            </div>
-            
-        </main>
+            </form>
+        </div>
+    </main>
 
-    <script src="scripts.js"></script>
+    <script src="registrarEvento.js"></script>
 </body>
 </html>
