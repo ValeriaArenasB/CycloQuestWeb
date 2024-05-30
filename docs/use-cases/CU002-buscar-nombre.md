@@ -1,4 +1,4 @@
-# CU002 - Búsqueda por Nombre:
+# CU002 - Búsqueda de Parqueadero por Nombre:
 Funcionalidad: Implementar la funcionalidad para buscar parqueaderos por su nombre.
 Descripción: Permite a los usuarios encontrar parqueaderos específicos introduciendo su nombre.
 

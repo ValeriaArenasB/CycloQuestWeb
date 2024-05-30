@@ -14,6 +14,7 @@ tasks:
     before: |
       sdk install springboot 
       sdk install java 22-tem < /dev/null
+      sudo apt-get install -y httpie
 
     init: |
       if [ -f pom.xml ]; then mvn package -DskipTests; fi
