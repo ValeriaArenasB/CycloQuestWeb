@@ -9,8 +9,14 @@ image: gitpod/workspace-java-17
 tasks:
 
   - name: Compila proyecto sin ejecutar pruebas
-    # before se ejecuta siempre
-    # init se ejecuta solo la primera vez
+      ./mvnw spring-boot:run
+
+  - name: frontEnd
+    command: |
+      cd frontEnd
+      pip install -r requirements.txt
+      python3 app.py
+
     before: |
       sdk install springboot 
       sdk install java 22-tem < /dev/null
