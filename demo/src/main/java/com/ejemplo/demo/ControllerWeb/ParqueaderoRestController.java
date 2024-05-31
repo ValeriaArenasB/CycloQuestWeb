@@ -19,23 +19,32 @@ public class ParqueaderoRestController {
 
     @PostMapping
     public Parqueadero addParqueadero(@RequestBody Parqueadero parqueadero) {
+        System.out.println("Parqueadero: " + parqueadero.toString() + " agregado\n");
         return parqueaderoRepository.save(parqueadero);
     }
 
     @GetMapping
     public List<Parqueadero> getAllParqueaderos() {
-        return parqueaderoRepository.findAll();
+        List<Parqueadero> parqueaderos = parqueaderoRepository.findAll();
+        for(int i = 0; i < parqueaderos.size() ; i++){
+            System.out.println(parqueaderos.toString() +"\n");
+        }
+        return parqueaderos;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Parqueadero> getParqueaderoById(@PathVariable Integer id) {
         Optional<Parqueadero> parqueadero = parqueaderoRepository.findById(id);
+        System.out.println(parqueadero.toString() + "\n");
         return parqueadero.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/buscar")
     public ResponseEntity<List<Parqueadero>> buscarParqueaderos(@RequestParam String nombre) {
         List<Parqueadero> parqueaderos = parqueaderoRepository.findByNombreContaining(nombre);
+        for(int i = 0; i < parqueaderos.size(); i++){
+            System.out.println(parqueaderos.get(i) + "\n");
+        }
         return ResponseEntity.ok(parqueaderos);
     }
 
@@ -48,8 +57,10 @@ public class ParqueaderoRestController {
             existingParqueadero.setUbicacion(parqueaderoDetails.getUbicacion());
             existingParqueadero.setCapacidad(parqueaderoDetails.getCapacidad());
             Parqueadero updatedParqueadero = parqueaderoRepository.save(existingParqueadero);
+            System.out.println("Parqueadero actualizado\n");
             return ResponseEntity.ok(updatedParqueadero);
         } else {
+            System.out.println("Parqueadero a actualizar no encontrado\n");
             return ResponseEntity.notFound().build();
         }
     }
@@ -59,8 +70,10 @@ public class ParqueaderoRestController {
         Optional<Parqueadero> parqueadero = parqueaderoRepository.findById(id);
         if (parqueadero.isPresent()) {
             parqueaderoRepository.delete(parqueadero.get());
+            System.out.println("Parqueadero a eliminado\n");
             return ResponseEntity.noContent().build();
         } else {
+            System.out.println("Parqueadero a eliminar no encontrado\n");
             return ResponseEntity.notFound().build();
         }
     }

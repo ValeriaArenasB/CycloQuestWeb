@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="ruta.css">
 </head>
 <body>
+    <div class = "cajita">
     <header>
         <div class="title">
             <h1>Bienvenido a CycloQuest</h1>
@@ -31,9 +32,22 @@
 
                 <input type="submit" value="Enviar">
             </form>
+
+            <form id="rutaForm">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" required>
+
+                <input type="submit" value="Enviar">
+            </form>
         </div>
     </main>
-
+</div>
     <script src="enviarSolicitud.js"></script>
 </body>
 </html>
