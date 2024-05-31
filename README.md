@@ -68,17 +68,25 @@ Con las funcionalidades principales implementadas, el proyecto podría expandirs
 7. **Compatibilidad con Dispositivos Móviles**: La aplicación debe ser compatible con dispositivos móviles para garantizar que los usuarios puedan acceder y utilizar todas las funcionalidades de manera óptima desde sus teléfonos inteligentes o tabletas.
 
 **PRUEBAS** 
-- Prueba Despliegue Azure]
+- Prueba Despliegue Azure
+
 ![Prueba Despliegue Azure](image.png)
 
+
 - Pruebas Unitarias y Testing correcto
-![Pruebas Unitarias y Testing correcto](image-1.png)
+![alt text](image-5.png)
+
 
 - Pantalla Inicial
+
 ![Pantalla Inicial](image-2.png)
 
+
 - Caso de Uso de Ejemplo funcional CU001
+
 ![Caso de Uso de Ejemplo funcional CU001](image-3.png)
 
+
 - Funcionamiento de Pantalla con Base de Datos
+
 ![Funcionamiento de Pantalla con Base de Datos](image-4.png)
