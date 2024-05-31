@@ -49,3 +49,20 @@ El proyecto se desarrolló utilizando un enfoque ágil, con iteraciones cortas y
 ## Futuros Desarrollos
 
 Con las funcionalidades principales implementadas, el proyecto podría expandirse en el futuro para incluir características adicionales como la integración con aplicaciones de navegación para ciclistas, la capacidad de realizar reservas en parqueaderos, la inclusión de información sobre el terreno y la dificultad de las rutas, y la posibilidad de compartir eventos en redes sociales. Estas mejoras podrían implementarse en sprints adicionales para continuar agregando valor a la aplicación y satisfacer las necesidades de los usuarios.
+
+
+## Reglas de Negocio
+
+1. **Unicidad de Nombre de Parqueaderos**: No se pueden registrar dos parqueaderos con el mismo nombre en la misma ubicación. Esto garantiza que los usuarios puedan encontrar fácilmente un parqueadero específico sin confusión.
+
+2. **Capacidad Máxima de Parqueaderos**: La capacidad máxima de un parqueadero no puede superar un límite predefinido, por ejemplo, 100 bicicletas. Esto evita la sobrecarga y garantiza que los parqueaderos sean gestionables y eficientes.
+
+3. **Validación de Datos de Ruta**: Antes de registrar una nueva ruta, se debe validar que la distancia y la duración de la ruta sean razonables. Por ejemplo, una ruta que cubre una distancia muy corta o muy larga puede no ser práctica para los usuarios.
+
+4. **Horario de Eventos de Ciclismo**: Los eventos de ciclismo deben tener un horario específico y no pueden superponerse con otros eventos en la misma ubicación. Esto garantiza que los usuarios puedan participar en múltiples eventos sin conflictos de programación.
+
+5. **Privacidad de los Usuarios**: La información personal de los usuarios, como su nombre, dirección de correo electrónico y detalles de contacto, debe mantenerse privada y solo ser accesible para fines autorizados, como el registro de eventos.
+
+6. **Seguridad de los Datos**: Se deben implementar medidas de seguridad adecuadas para proteger la integridad y confidencialidad de los datos del usuario, así como para prevenir accesos no autorizados o manipulación de datos.
+
+7. **Compatibilidad con Dispositivos Móviles**: La aplicación debe ser compatible con dispositivos móviles para garantizar que los usuarios puedan acceder y utilizar todas las funcionalidades de manera óptima desde sus teléfonos inteligentes o tabletas.
