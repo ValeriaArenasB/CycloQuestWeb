@@ -1,203 +1,84 @@
-# Creando una aplicación web con Spring Boot
-
-> En este tutorial creará una pequeña aplicación web usando [Spring Boot](https://spring.io/projects/spring-boot): un conjunto de herramientas y librerías que facilitan el desarrollo de aplicaciones empresariales. 
-
+# Casos de Uso
 ---
 
-## Objetivos de aprendizaje
-
-En este tutorial, aprenderá a 
-- Desarrollar una aplicación web usando Spring Boot
-- Generar respuestas a peticiones HTTP GET
-- Mostrar páginas HTML como respuesta a peticiones HTTP GET
+* [CU001 - Registro de Parqueaderos](CU001-registrar-parqueadero.md)
+* [CU002 - Búsqueda de Parqueadero por Nombre](CU002-buscar-nombre.md)
+* [CU003 - Lista de Rutas](CU003-listar-rutas.md)
+* [CU004 - Registro de Eventos](CU004-registrar-evento.md)
 
 
-## Requisitos previos
+# Descripción del Proyecto
 
-- Conocimientos básicos de programación, Java y bases de datos.
-- Una instancia de [Gitpod](https://gitpod.io/) o un computador con [Docker Desktop](https://www.docker.com/products/docker-desktop/) y [Visual Studio Code](https://code.visualstudio.com/) instalado. 
+El proyecto "CycloQuest" es una aplicación web desarrollada para facilitar la gestión y exploración de recursos relacionados con el ciclismo. Utiliza tecnologías como Java, JavaScript, H2 (una base de datos embebida) y Spring Boot para proporcionar funcionalidades clave como el registro de parqueaderos, búsqueda de parqueaderos por nombre, lista de rutas recomendadas y registro de eventos de ciclismo.
 
----
+## Funcionalidades
 
-## Paso a paso
+El proyecto se desarrolla en varios sprints, cada uno centrado en implementar una funcionalidad específica:
 
-### 1. Crear una copia del repositorio
+### Sprint 1: Registro de Parqueaderos (CU001)
 
-- Navegue hasta el repositorio del proyecto en Github
-    - [https://github.com/sw-labs/springboot-holamundo-tutorial](https://github.com/sw-labs/springboot-holamundo-tutorial)
+Permite a los administradores registrar nuevos parqueaderos con detalles como nombre, ubicación y capacidad. Este sprint establece la base para la gestión de lugares seguros para estacionar bicicletas.
 
-- Cree una copia del repositorio usando el botón "Use this Template", la opción "Create a new repository"
-    - asigne un nombre al nuevo repositorio
+### Sprint 2: Búsqueda de Parqueaderos por Nombre (CU002)
 
-### 2. Abra el nuevo repositorio 
+Facilita a los usuarios encontrar parqueaderos específicos introduciendo su nombre. Esto mejora la experiencia del usuario al proporcionar una forma rápida de localizar lugares de estacionamiento cercanos.
 
-- Abra el repositorio que acaba de crear usando Gitpod o Visual Studio Code
-    - Para usar Gitpod, en el navegador, agregue  `gitpod.io` al inicio de la ruta URL del repositorio
+### Sprint 3: Lista de Rutas (CU003)
 
-    ```
-    # Si el URL es https://github.com/ejemplo/spring
-    # Use en el navegador:
-    
-    gitpod.io#https://github.com/ejemplo/spring
-    ```
-    - Para usar Visual Studio Code, haga una copia del proyecto y use el comando `code` 
+Ofrece a los usuarios una lista de rutas recomendadas basadas en su ubicación y preferencias. Esta función fomenta la exploración al proporcionar sugerencias de rutas interesantes y seguras para montar en bicicleta.
 
-    ```
-    # Si el repositorio es https://github.com/ejemplo/spring
-    # Ejecute los comandos:
+### Sprint 4: Registro de Eventos (CU004)
 
-    git clone https://github.com/ejemplo/spring
-    cd spring
-    code . 
-    ```
+Permite a los usuarios registrar eventos de ciclismo, incluyendo detalles como fecha, hora, ubicación y descripción. Esto fomenta la comunidad al facilitar la organización de eventos ciclistas locales.
 
+## Tecnologías Utilizadas
 
-### 3. Cree un nuevo proyecto de Spring
+- **Java**: Utilizado en el backend para la lógica de negocio y la gestión de datos.
+- **JavaScript**: Empleado en el frontend para la interactividad y dinamismo de la aplicación.
+- **H2 Database**: Una base de datos embebida utilizada para almacenar los datos de la aplicación.
+- **Spring Boot**: Framework de desarrollo de aplicaciones Java que simplifica la creación de aplicaciones basadas en Spring.
 
-- En Gitpod o Visual Studio Code, presiones [F1] para mostrar las opciones del editor
-- Seleccione la opción  `Spring Initializr: Create a new Maven Project...`
-- Seleccione la última opción de Spring Boot
-- Seleccione el lenguaje Java
-- Indique el nombre del grupo, algo similar al nombre de una empresa, por ejemplo "com.empresa"
-- Indique el nombre del proyecto, por ejemplo "tutorial"
-- Seleccione el tipo de paquete "jar"
-- Seleccione la versión de Java "22"
-- Seleccione las dependencias "Spring Web" y "Sprint Boot DevTools". Presione Enter cuando haya terminado de seleccionar las dependencias.
--  Indique la carpeta donde se grabará el proyecto. Use el nombre recomendado por el editor.
+## Aplicación y Potencial de Uso
 
----
+"CycloQuest" es capaz de simplificar la gestión de recursos relacionados con el ciclismo, como parqueaderos y rutas, y facilitar la organización de eventos ciclistas. Esta aplicación podría ser utilizada por administradores de ciudades, comunidades ciclistas, organizadores de eventos deportivos y entusiastas del ciclismo en general.
 
-Al crear el proyecto se crea un proyecto Spring con una serie de clases y archivos.
+## Proceso de Desarrollo
 
-Si se usó el nombre de empresa "com.empresa" y el nombre de proyecto "tutorial", debieron crearse una serie de archivos similares a los siguientes:
+El proyecto se desarrolló utilizando un enfoque ágil, con iteraciones cortas y frecuentes para agregar nuevas funcionalidades y mejorar la experiencia del usuario. Cada sprint se centró en implementar una característica específica, desde el registro de parqueaderos hasta la lista de rutas recomendadas y el registro de eventos. Se realizaron pruebas exhaustivas para garantizar el correcto funcionamiento de la aplicación y se recopilaron comentarios de los usuarios para realizar ajustes y mejoras continuas.
 
-```
-/demo
-  /src
-    /main
-      /java                         <-- carpeta con código fuente java
-        /com/empresa/tutorial       <-- paquete en java
-          TutorialApplication.java  <-- clase en java
-      
-      /resources                    <-- carpeta con archivos adicionales
-        /static
-        /templates
-        application.properties      <-- archivo de configuración
-  
-            :  (otros archivos)
-``` 
+## Futuros Desarrollos
 
-**NOTA:** Los nombres pueden variar de acuerdo a los datos suministrados en la configuración.
-
----
-
-### 4. Agregue un paquete para Controladores
-
-> Los controladores son clases Java que responden a eventos y a solicitudes de los usuarios. Para el ejemplo, estos controladores van a responder a solicitudes web hechas con el protocolo HTTP
-
-- Seleccione el paquete (la carpeta) donde se encuentra la clase `Application`. Para el ejemplo, seleccione el paquete `com.empresa.tutorial`
-- Haga clic derecho y seleccione "New..." y la opción "Package"
-- Indique el nombre del nuevo paquete. Por ejemplo `com.empresa.tutorial.controllers`
-
-### 5. Agregue una clase Controladora REST
-
-- Seleccione el paquete que acaba de crear
-- Haga clic derecho y seleccione "New..." y la opción "Class"
-- Indique el nombre de la clase `HolaMundoController`
-
-### 6. Escriba el código para crear el controlador
-
-> Los Controladores REST atienden solicitudes web hechas con el protocolo HTTP. Estos controladores pueden atender, por ejemplo, solicitudes GET que son enviadas por un navegador web para obtener una página de internet.
-
-- Agregue una anotación `@RestController" a la clase
-- Agregue un método `hola()` que tenga la anotación `@GetMapping` indicando que este método debe responder a la ruta `/`
-
-  ```
-  package com.empresa.tutorial.controllers;
-
-  import org.springframework.web.bind.annotation.RestController;
-  import org.springframework.web.bind.annotation.GetMapping;
+Con las funcionalidades principales implementadas, el proyecto podría expandirse en el futuro para incluir características adicionales como la integración con aplicaciones de navegación para ciclistas, la capacidad de realizar reservas en parqueaderos, la inclusión de información sobre el terreno y la dificultad de las rutas, y la posibilidad de compartir eventos en redes sociales. Estas mejoras podrían implementarse en sprints adicionales para continuar agregando valor a la aplicación y satisfacer las necesidades de los usuarios.
 
 
-  @RestController
-  public class HolaMundoController {
+## Reglas de Negocio
 
-      @GetMapping("/")
-      public String hola() {
-          return "Hola Mundo";
-      }
+1. **Unicidad de Nombre de Parqueaderos**: No se pueden registrar dos parqueaderos con el mismo nombre en la misma ubicación. Esto garantiza que los usuarios puedan encontrar fácilmente un parqueadero específico sin confusión.
 
-  }
-  ```
+2. **Capacidad Máxima de Parqueaderos**: La capacidad máxima de un parqueadero no puede superar un límite predefinido, por ejemplo, 100 bicicletas. Esto evita la sobrecarga y garantiza que los parqueaderos sean gestionables y eficientes.
 
-### 7. Ejecute la aplicación
+3. **Validación de Datos de Ruta**: Antes de registrar una nueva ruta, se debe validar que la distancia y la duración de la ruta sean razonables. Por ejemplo, una ruta que cubre una distancia muy corta o muy larga puede no ser práctica para los usuarios.
 
-- Desde línea de comandos, cambie el directorio actual al directorio del proyecto
-  ```
-  # cd <nombre de la carpeta con el proyecto>
-  cd tutorial
-  ```
+4. **Horario de Eventos de Ciclismo**: Los eventos de ciclismo deben tener un horario específico y no pueden superponerse con otros eventos en la misma ubicación. Esto garantiza que los usuarios puedan participar en múltiples eventos sin conflictos de programación.
 
-- Ejecute la aplicación usando `mvn spring-boot:run`
-  ```
-  mvn spring-boot:run
-  ```
+5. **Privacidad de los Usuarios**: La información personal de los usuarios, como su nombre, dirección de correo electrónico y detalles de contacto, debe mantenerse privada y solo ser accesible para fines autorizados, como el registro de eventos.
 
-### 8. Visualice el funcionamiento del controlador
+6. **Seguridad de los Datos**: Se deben implementar medidas de seguridad adecuadas para proteger la integridad y confidencialidad de los datos del usuario, así como para prevenir accesos no autorizados o manipulación de datos.
 
-- Use un navegador y observe el resultado de la aplicación
-  - En Gitpod, apenas ejecute la aplicación, debe aparecer una ventana preguntando si se desea ver la página web que acaba de lanzar
-  - Haga clic en "Open in browser" para ver el funcionamiento de la aplicación
+7. **Compatibilidad con Dispositivos Móviles**: La aplicación debe ser compatible con dispositivos móviles para garantizar que los usuarios puedan acceder y utilizar todas las funcionalidades de manera óptima desde sus teléfonos inteligentes o tabletas.
 
-### 9. Elabore un método que reciba un parámetro
+**PRUEBAS** 
+- Prueba Despliegue Azure]
+![Prueba Despliegue Azure](image.png)
 
-> Las peticiones HTTP GET pueden enviar parámetros por medio del URL
+- Pruebas Unitarias y Testing correcto
+![Pruebas Unitarias y Testing correcto](image-1.png)
 
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita saludar a alguna persona. Defina un controlador para la ruta `/saludo` que reciba como parámetro el campo `nombre`.
+- Pantalla Inicial
+![Pantalla Inicial](image-2.png)
 
-  ```
-    @GetMapping("/saludo")
-    public String saludo(@RequestParam String nombre) {
-        return "Hola " + nombre;
-    }
-  ```
+- Caso de Uso de Ejemplo funcional CU001
+![Caso de Uso de Ejemplo funcional CU001](image-3.png)
 
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/saludo?nombre=Jaime
-  ```
-
-### 10. Elabore un método que reciba dos parámetros
-
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita sumar dos números. Defina un controlador para la ruta `/suma` que reciba como parámetros los campos `a` y `b`.
-
-  ```
-    @GetMapping("/suma")
-    public String Suma(@RequestParam Integer a, @RequestParam Integer b) {
-        return "" + (a + b);
-    }
-  ```
-
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/suma?a=10&b=11
-  ```
-
-### 11. Elabore un método que reciba una variable de ruta y un parámetro
-
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita reciba un valor en la ruta del URL y reciba un parámetro adicional. Defina un controlador para la ruta `/validar` que reciba una variable de ruta `clase` y un parámetros `id`.
-
-  ```
-    @GetMapping("/validar/{clase}")
-    public String validar(@PathVariable String clase, @RequestParam String id) {
-        return "validando la clase " + clase +  " y el id " + id;
-    }
-  ```
-
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/validar/libro?id=10
-  ```
-
-
-  
+- Funcionamiento de Pantalla con Base de Datos
+![Funcionamiento de Pantalla con Base de Datos](image-4.png)
