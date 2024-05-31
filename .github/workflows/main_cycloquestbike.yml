@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - cycloquestbike
 on:
   push:
     branches:
-      - main
+      - Azure
   workflow_dispatch:
 
 jobs:
@@ -23,13 +23,13 @@ jobs:
           distribution: 'zulu'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install -f demo/pom.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/demo/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_15EA9DC0DE0E4FB48EBD4ABFB8248A9C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_761A2CF24581435E937E054A48C0B849 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_48B9A5D65C344EC38AC6F0D2CFDE5DA7 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_46DC19137E1F4EA992C3124406746C1F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5DC5127E6F5B45159E175ED749EFA857 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_123A341409694ECD820993938D7D3092 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
