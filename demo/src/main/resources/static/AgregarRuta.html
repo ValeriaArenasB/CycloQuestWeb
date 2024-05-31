@@ -15,21 +15,26 @@
     </header>
 
     <div class="title_header">
-        <h2>Buscar Parqueaderos</h2>
+        <h2>Agregar Ruta</h2>
     </div>
 
     <main>
         <div class="form-container">
-            <form id="buscarForm">
-                <label for="nombre">Nombre del Parqueadero:</label>
+            <form id="rutaForm">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+
+                <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
-                <input type="submit" value="Buscar">
+
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" required>
+
+                <input type="submit" value="Enviar">
             </form>
         </div>
-
-        <div id="resultados"></div>
     </main>
-</div>
-    <script src="buscarParqueadero.js"></script>
+    </div>
+    <script src="enviarRuta.js"></script>
 </body>
 </html>
