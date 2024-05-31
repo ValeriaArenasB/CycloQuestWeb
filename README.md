@@ -72,6 +72,8 @@ Con las funcionalidades principales implementadas, el proyecto podría expandirs
 
 ![Prueba Despliegue Azure](image.png)
 
+![Despliegue Azure](image-6.png)
+
 
 - Pruebas Unitarias y Testing correcto
 ![alt text](image-5.png)
