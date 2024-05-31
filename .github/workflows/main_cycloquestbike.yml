@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - cycloquestbike
 on:
   push:
     branches:
-      - Azure
+      - main
   workflow_dispatch:
 
 jobs:
