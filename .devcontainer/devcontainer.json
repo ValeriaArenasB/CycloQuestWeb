@@ -10,7 +10,7 @@
 		"ghcr.io/devcontainers-contrib/features/maven-sdkman:2": {},
 		"ghcr.io/devcontainers-contrib/features/mvnd-sdkman:2": {},
 		"ghcr.io/devcontainers-contrib/features/springboot-sdkman:2": {},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:3": {}
 	},
 
 	// Configure tool-specific properties.
